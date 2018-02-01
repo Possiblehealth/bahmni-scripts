@@ -185,8 +185,8 @@ INSERT INTO
 SELECT
 	patient_id,
 	concat((Select prefix from idgen_seq_id_gen order by rand() limit 1), patient_id),
-	(Select patient_identifier_type_id from patient_identifier_type where name = 'Bahmni Id'),
-	1,
+	(Select patient_identifier_type_id from patient_identifier_type where name = 'Patient Identifier'),
+	2,
 	1,
 	1,
 	'20080101',
@@ -195,7 +195,7 @@ SELECT
 FROM
 	patient;
 
-CREATE table temp_person_uuid_old(person_id int, uuid varchar(256), PRIMARY KEY(person_id));
+	CREATE table temp_person_uuid_old(person_id int, uuid varchar(256), PRIMARY KEY(person_id));
 
 INSERT INTO temp_person_uuid_old 
 SELECT person_id, uuid FROM person;
